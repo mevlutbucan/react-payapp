@@ -1,0 +1,8 @@
+/.cache
+/.git
+/.idea
+/.vscode
+/node_modules
+/public
+
+package-lock.json

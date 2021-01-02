@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+    <defs>
+        <linearGradient gradientUnits="userSpaceOnUse" x1="125" y1="25" x2="125" y2="475" id="gradient-0" gradientTransform="matrix(1.885619, 0, 0, 1.885619, -110.70227, -221.404567)">
+            <stop offset="0" style="stop-opacity: 0.4; stop-color: rgb(253, 67, 91);"></stop>
+            <stop offset="1" style="stop-opacity: 0; stop-color: rgb(253, 67, 91);"></stop>
+        </linearGradient>
+        <linearGradient gradientUnits="userSpaceOnUse" x1="125" y1="100" x2="125" y2="400" id="gradient-1" gradientTransform="matrix(1.885619, 0, 0, 1.885619, -110.702573, -221.405149)">
+            <stop offset="0" style="stop-opacity: 0.4; stop-color: rgb(253, 67, 91);"></stop>
+            <stop offset="1" style="stop-opacity: 0.1; stop-color: rgb(253, 67, 91);"></stop>
+        </linearGradient>
+        <linearGradient gradientUnits="userSpaceOnUse" x1="125" y1="175" x2="125" y2="325" id="gradient-2" gradientTransform="matrix(1.885619, 0, 0, 1.885619, -110.702531, -221.405094)">
+            <stop offset="0" style="stop-opacity: 0.4; stop-color: rgb(253, 67, 91);"></stop>
+            <stop offset="1" style="stop-opacity: 0.2; stop-color: rgb(253, 67, 91);"></stop>
+        </linearGradient>
+        <radialGradient gradientUnits="userSpaceOnUse" cx="31.434" cy="45.347" r="12.5" id="gradient-3" gradientTransform="matrix(1.885619, 0, 0, 1.885619, 14.298521, 28.59491)">
+            <stop offset="0" style="stop-color: rgb(254, 254, 254);"></stop>
+            <stop offset="1" style="stop-color: rgb(255, 220, 224);"></stop>
+        </radialGradient>
+        <radialGradient gradientUnits="userSpaceOnUse" cx="31.434" cy="45.347" r="12.5" id="gradient-4" gradientTransform="matrix(1.131371, 0, 0, 1.131371, 96.646172, 525.219276)">
+            <stop offset="0" style="stop-color: rgb(254, 254, 254);"></stop>
+            <stop offset="1" style="stop-color: rgb(255, 220, 224);"></stop>
+        </radialGradient>
+        <radialGradient gradientUnits="userSpaceOnUse" cx="31.434" cy="45.347" r="12.5" id="gradient-5" gradientTransform="matrix(1.508495, 0, 0, 1.508495, 421.438738, 250.450092)">
+            <stop offset="0" style="stop-color: rgb(254, 254, 254);"></stop>
+            <stop offset="1" style="stop-color: rgb(255, 220, 224);"></stop>
+        </radialGradient>
+    </defs>
+    <circle style="fill: none; stroke: url(#gradient-0); stroke-width: 2px;" cx="125" cy="250" r="424.264" transform="matrix(0.707107, -0.707106, 0.707106, 0.707107, -15.164936, 411.611466)"></circle>
+    <circle style="fill: none; stroke: url(#gradient-1); stroke-width: 2px;" cx="125" cy="250" r="282.843" transform="matrix(0.866026, -0.5, 0.5, 0.866026, 16.748157, 345.993679)"></circle>
+    <circle style="fill: none; stroke: url(#gradient-2); stroke-width: 2px;" cx="125" cy="250" r="141.421" transform="matrix(0.707107, 0.707107, -0.707107, 0.707107, 338.389068, 234.835041)"></circle>
+    <circle style="fill: url(#gradient-3);" cx="73.571" cy="114.102" r="23.57"></circle>
+    <circle style="fill: url(#gradient-4);" cx="132.21" cy="576.524" r="14.142"></circle>
+    <circle style="fill: url(#gradient-5);" cx="468.857" cy="318.856" r="18.856"></circle>
+</svg>

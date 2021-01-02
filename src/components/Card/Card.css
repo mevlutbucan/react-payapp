@@ -1,0 +1,185 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 270px;
+    width: 100%;
+    max-width: 430px;
+    margin: 0;
+    border-radius: 15px;
+    padding: 10px 30px;
+    color: #ffffff;
+    background: url('assets/card.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 20px 60px 0 rgba(0, 0, 0, 0.55);
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.card label {
+    display: block;
+    cursor: pointer;
+}
+
+.card-brand {
+    display: block;
+    height: 32%;
+    padding: 10px 0;
+}
+
+.card-logo {
+    display: block;
+    height: 100%;
+    transition: all 300ms;
+}
+
+.card-logo > svg {
+    display: block;
+    height: 100%;
+    margin-left: auto;
+    fill: #ffffff;
+}
+
+.card-number {
+    display: flex !important;
+    height: 16%;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Iceland', serif;
+    font-size: 1.875rem;
+}
+
+.card-holder {
+    flex-basis: 70%;
+    padding: 10px;
+}
+.holder-name {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    transition: all 300ms;
+}
+.holder-name__part {
+    margin-right: 5px;
+}
+.holder-name__part:last-child {
+    margin: 0;
+}
+.holder-name__letter {
+    display: inline-block;
+    transition: all 300ms;
+}
+
+.card-expdate {
+    padding: 10px;
+}
+
+.card__flexbox {
+    display: flex;
+    height: 32%;
+    margin-right: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-label {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.card-input {
+    display: flex;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 1.375rem;
+    font-weight: 400;
+}
+
+.card-pattern {
+    display: block;
+}
+
+.card-digit {
+    display: inline-block;
+    width: 17px;
+    text-align: center;
+    transition: all 300ms;
+}
+
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-done,
+.fade-enter-active,
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.rotateX-enter {
+    transform: rotateX(90deg);
+}
+.rotateX-enter-done,
+.rotateX-enter-active,
+.rotateX-exit {
+    transform: rotateX(0);
+}
+.rotateX-exit-active {
+    transform: rotateX(-90deg);
+}
+
+.slide-appear,
+.slide-enter {
+    opacity: 0;
+    transform: translate(0px, 5px) rotate(0deg);
+}
+.slide-appear-active,
+.slide-enter-active,
+.slide-appear-done,
+.slide-enter-done {
+    opacity: 1;
+    transform: translate(0px, 0px) rotate(0deg);
+}
+.slide-exit {
+    opacity: 1;
+    transform: translate(0px, 0px) rotate(0deg);
+}
+.slide-exit-active {
+    opacity: 0;
+    transform: translate(10px, 0px) rotate(-45deg);
+}
+
+@media screen and (min-width: 1080px) {
+    .card {
+        margin-bottom: 75px;
+    }
+}
+
+@media screen and (min-width: 479px) {
+    .card {
+        display: none;
+    }
+}
+
+/* FIXME: #1 - Media Queries of Card */
+/* @media screen and (max-width: 479px) {
+    .card {
+        height: 55vw;
+        padding: 10px 20px;
+    }
+
+    .card__flexbox {
+        margin-right: 13vw;
+    }
+
+    .card-digit {
+        width: 12px;
+    }
+} */

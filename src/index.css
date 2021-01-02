@@ -1,0 +1,37 @@
+@import-normalize;
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* :focus {
+    outline: none;
+} */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    color: #353535;
+    background-color: #fefefe;
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+select {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@media screen and (max-width: 479px) {
+    html {
+        font-size: 12px;
+    }
+}

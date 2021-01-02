@@ -1,0 +1,25 @@
+{
+    "name": "React - Payment Application",
+    "short_name": "React-PayApp",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#fd435b",
+    "background_color": "#fefefe",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "type": "image/x-icon",
+            "sizes": "16x16 24x24 32x32 64x64"
+        },
+        {
+            "src": "logo192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "logo512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
