@@ -25,7 +25,7 @@
   
   > *American Express*, *Discover*, *Maestro*, *MasterCard* and *Visa* are currently available networks.
   
-- **Input Formatting**: The data obtained from the inputs are processed in real time and formatted properly. (DOM manipulation is handled by *React*.)
+- **Input Formatting**: The data obtained from the inputs are processed in real-time and formatted properly. (DOM manipulation is handled by *React*.)
 
 - **Mobile-Friendly Inputs**: Suitable mobile keyboards are shown to make users' interaction with form inputs easier.
 
