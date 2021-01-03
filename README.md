@@ -9,8 +9,7 @@
 
 
 <p align="center"><b>A payment application with smooth and sweet micro-interactions.</b></p>
-
-![React-PayApp Screenshot](./.github/screenshots/react-payapp.png "React - PayApp")
+<p align="center"><img src=".github/screenshots/react-payapp.png" alt="React-PayApp Screenshot" title="React - PayApp" align="center" /></p>
 
 
 
@@ -26,7 +25,7 @@
   
   > *American Express*, *Discover*, *Maestro*, *MasterCard* and *Visa* are currently available networks.
   
-- **Input Formatting**: The data obtained from the inputs are processed in real-time and formatted properly. (DOM manipulation is handled by *React*.)
+- **Input Formatting**: The data obtained from the inputs are processed in real time and formatted properly. (DOM manipulation is handled by *React*.)
 
 - **Mobile-Friendly Inputs**: Suitable mobile keyboards are shown to make users' interaction with form inputs easier.
 
