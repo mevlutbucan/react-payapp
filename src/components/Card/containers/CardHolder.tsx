@@ -1,6 +1,8 @@
+import { useRef } from 'react';
 import { useHolder } from 'contexts';
-import { useTransitionPlaceholder } from '../hooks';
 import { CardHolderView } from '../views';
+
+const DEFAULT_PLACEHOLDER = '';
 
 export default function CardHolder() {
   const { holder } = useHolder();
@@ -15,4 +17,10 @@ export default function CardHolder() {
       placeholder={placeholderArr}
     />
   );
+}
+
+function useTransitionPlaceholder(value: string) {
+  const placeholderRef = useRef<string>(DEFAULT_PLACEHOLDER);
+  placeholderRef.current = value + placeholderRef.current.slice(value.length);
+  return placeholderRef.current;
 }

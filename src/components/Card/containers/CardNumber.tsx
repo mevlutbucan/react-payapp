@@ -26,10 +26,11 @@ class CardNumber extends Component<PropTypes> {
   constructor(props: PropTypes) {
     super(props);
     this.prevNumber = props.number;
+    this.prevPattern = props.pattern;
   }
 
   setEverythingForRender() {
-    const isSamePattern = this.props.pattern === this.prevPattern;
+    const isSamePattern = this.props.pattern?.toString() === this.prevPattern?.toString();
     if (!isSamePattern) {
       this.prevPattern = this.props.pattern;
       this.placeholder = getPlaceholder(this.props.pattern);

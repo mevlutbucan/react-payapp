@@ -8,7 +8,9 @@
 
 
 
-<div style="text-align:center; font-weight:bold;"><p>A payment application with smooth and sweet micro-interactions.</p><img src="./.github/screenshots/react-payapp.png" alt="React-PayApp Screenhot" title="React-PayApp" /></div>
+<p align="center"><b>A payment application with smooth and sweet micro-interactions.</b></p>
+
+<img src=".github/screenshots/react-payapp.png" alt="React-PayApp Screenshot" title="React - PayApp" align="center" />
 
 
 
