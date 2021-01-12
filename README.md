@@ -9,7 +9,7 @@
 
 
 <p align="center"><b>A payment application with smooth and sweet micro-interactions.</b></p>
-<p align="center"><img src=".github/screenshots/react-payapp.png" alt="React-PayApp Screenshot" title="React - PayApp" align="center" /></p>
+<p align="center"><img src="screenshots/react-payapp.png" alt="React-PayApp Screenshot" title="React - PayApp" align="center" /></p>
 
 
 
@@ -86,4 +86,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](./LICENSE).
