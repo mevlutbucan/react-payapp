@@ -73,10 +73,20 @@ input#cvc {
     font-size: 28px;
     font-weight: 500;
     color: #ffffff;
+    outline: none;
     box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
+    transition: all 0.1s;
+}
+.card-form__button:hover {
+    background-color: #ff314c;
+}
+.card-form__button:focus {
+    background-color: #ff314c;
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .card-form__text {
