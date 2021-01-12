@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react';
+import { useState } from 'react';
 import { useExpDate, useExpDateValidity } from 'contexts';
 import { onYearBlur, onYearChange } from '../actions';
 import { FormInput } from '../views';
@@ -9,27 +9,31 @@ const INVALID = false;
 const INVALIDLENGTH_TEXT = 'Please enter a 4-digit year!';
 const INVALIDYEAR_TEXT = 'Please enter a valid year!';
 
-interface IUpdateStatesArgs extends IUpdateStatesFunctionDefaultArgs {
-  newYear?: string;
-}
-
-const FormYear: FunctionComponent = function ({ ...otherProps }) {
+const FormYear = function ({ ...styleProps }) {
   const { year, setYear } = useExpDate();
   const { isValid, setValidity } = useExpDateValidity();
   const [validityText, setValidityText] = useState(VALID_TEXT);
 
-  const checkValidity: IValidityCheckFunction = function (newYear) {
-    if (newYear) {
+  interface IValidityCheckFunctionArgs {
+    newYear: string;
+  }
+  const checkValidity: IValidityCheckFunction<IValidityCheckFunctionArgs> = function (args) {
+    const { newYear } = args;
+    function checkLength(): [boolean, string] | undefined {
       if (newYear.length < 4) return [INVALID, INVALIDLENGTH_TEXT];
-      else if (parseInt(newYear, 10) < new Date().getFullYear())
-        return [INVALID, INVALIDYEAR_TEXT];
     }
-    return [VALID, VALID_TEXT];
+    function checkYear(): [boolean, string] | undefined {
+      if (parseInt(newYear, 10) < new Date().getFullYear()) return [INVALID, INVALIDYEAR_TEXT];
+    }
+    function checkAll() {
+      if (newYear.length !== 0) return checkLength() || checkYear();
+    }
+    return checkAll() || [VALID, VALID_TEXT];
   };
 
   const handleBlur: IHandleBlurFunction = function (e) {
     const newYear = onYearBlur(e, year);
-    const [newValidity, newValidityText] = checkValidity(newYear);
+    const [newValidity, newValidityText] = checkValidity({ newYear });
     updateStates({ newYear, newValidity, newValidityText });
   };
 
@@ -39,15 +43,17 @@ const FormYear: FunctionComponent = function ({ ...otherProps }) {
   };
 
   const handleFocus: IHandleFocusFunction = function (e) {
-    if (!isValid) updateStates({ newValidity: true });
+    if (!isValid) updateStates({ newValidity: VALID });
   };
 
+  interface IUpdateStatesArgs extends IUpdateStatesFunctionDefaultArgs {
+    newYear?: string;
+  }
   const updateStates: IUpdateStatesFunction<IUpdateStatesArgs> = function (args) {
-    const { newYear, newValidity, newValidityText } = args;
-    if (newYear !== undefined) if (newYear !== year) setYear(newYear);
-    if (newValidity !== undefined) if (newValidity !== isValid) setValidity(newValidity);
-    if (newValidityText !== undefined)
-      if (newValidityText !== validityText) setValidityText(newValidityText);
+    const { newYear = year, newValidity = isValid, newValidityText = validityText } = args;
+    if (newYear !== year) setYear(newYear);
+    if (newValidity !== isValid) setValidity(newValidity);
+    if (newValidityText !== validityText) setValidityText(newValidityText);
   };
 
   return (
@@ -60,8 +66,8 @@ const FormYear: FunctionComponent = function ({ ...otherProps }) {
       onInputBlur={handleBlur}
       onInputChange={handleChange}
       onInputFocus={handleFocus}
-      validityText={validityText}
-      {...otherProps}
+      validityText={validityText} // Create a new view component "FormInputValidity"
+      {...styleProps}
     />
   );
 };

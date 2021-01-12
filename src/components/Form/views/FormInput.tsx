@@ -16,7 +16,7 @@ type PropTypes = {
   onInputChange: IHandleChangeFunction;
   onInputFocus?: IHandleFocusFunction;
   sectionClass?: string;
-  validityText?: string;
+  validityText?: string; // Create a new view component "FormInputValidity"
 };
 
 // TODO: #3 - FormInput > Invalid Input Text
@@ -33,7 +33,7 @@ const FormInput: FunctionComponent<PropTypes> = function ({
   onInputChange,
   onInputFocus,
   sectionClass,
-  validityText,
+  validityText, // Create a new view component "FormInputValidity"
 }) {
   if (!!labelText && !inputID) {
     console.error('Label without input id!');

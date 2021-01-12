@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react';
+import { useState } from 'react';
 import { useNetwork, useNumber, useNumberValidity } from 'contexts';
 import { onNumberChange } from '../actions';
 import { checkCardNumber } from '../utils';
@@ -14,7 +14,7 @@ const INVALIDNETWORK_TEXT =
   'Please use one of the following card networks:\nAmerican Express, Discover, Maestro, MasterCard or Visa.';
 const INVALIDNUMBER_TEXT = 'Please enter a valid card number!';
 
-const FormNumber: FunctionComponent = function () {
+const FormNumber = function () {
   const { network, setNetwork } = useNetwork();
   const { number, setNumber } = useNumber();
   const [maxLength, setMaxLength] = useState(DEFAULT_MAXLENGTH);
@@ -67,7 +67,7 @@ const FormNumber: FunctionComponent = function () {
   };
 
   const handleFocus: IHandleFocusFunction = function (e) {
-    if (!isValid) updateStates({ newNetwork: network, newValidity: true });
+    if (!isValid) updateStates({ newNetwork: network, newValidity: VALID });
   };
 
   interface IUpdateStatesArgs extends IUpdateStatesFunctionDefaultArgs {
