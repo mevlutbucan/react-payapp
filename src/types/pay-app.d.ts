@@ -36,6 +36,7 @@ type SubmitEventType = React.FormEvent<HTMLFormElement>;
 interface IUpdateStatesFunctionDefaultArgs {
   newValidity?: boolean;
   newValidityText?: string;
+  newFocus?: ComponentFocusType;
 }
 
 interface IHandleBlurFunction {
@@ -47,8 +48,8 @@ interface IHandleChangeFunction {
 interface IHandleFocusFunction {
   (event: FocusEventType): void;
 }
-interface IValidityCheckFunction {
-  (value: string): [boolean, string?];
+interface IValidityCheckFunction<T> {
+  (args: T): [boolean, string];
 }
 interface IUpdateStatesFunction<T> {
   (args: T): void;
@@ -60,3 +61,6 @@ interface IProviderComponent {
 }
 
 type BrandLogoComponentType = React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+
+// *****MISCELLANEOUS TYPES*****
+type ComponentFocusType = 'DEFAULT' | 'NUMBER' | 'HOLDER' | 'EXPDATE' | 'CVC';
