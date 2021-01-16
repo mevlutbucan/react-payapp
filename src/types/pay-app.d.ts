@@ -17,9 +17,10 @@ type NetworkType = INetwork | undefined;
 // interface IContextValue<T> {
 //   [key: string]: T | ((value: T) => void);
 // }
-interface IValidityContextValue {
+interface IValidityContextValue<T> {
+  checkValidity: (args: T) => void;
   isValid: boolean;
-  setValidity: (validity: boolean) => void;
+  validityInfo: string;
 }
 
 type DefaultContextType = Symbol;
@@ -34,8 +35,6 @@ type SubmitEventType = React.FormEvent<HTMLFormElement>;
 
 // *****FUNCTION TYPES*****
 interface IUpdateStatesFunctionDefaultArgs {
-  newValidity?: boolean;
-  newValidityText?: string;
   newFocus?: ComponentFocusType;
 }
 
@@ -49,7 +48,7 @@ interface IHandleFocusFunction {
   (event: FocusEventType): void;
 }
 interface IValidityCheckFunction<T> {
-  (args: T): [boolean, string];
+  (args: T): void;
 }
 interface IUpdateStatesFunction<T> {
   (args: T): void;
@@ -57,7 +56,7 @@ interface IUpdateStatesFunction<T> {
 
 // *****COMPONENT TYPES*****
 interface IProviderComponent {
-  ({ children }: { children: React.ReactNode }): React.ReactElement;
+  (props: { children: React.ReactNode }): React.ReactElement;
 }
 
 type BrandLogoComponentType = React.FunctionComponent<React.SVGProps<SVGSVGElement>>;

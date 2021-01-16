@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Context, ValidityContext } from 'contexts/ContextHolder';
-import { ValidityProvider } from './Helpers';
+import { Context } from 'contexts/ContextHolder';
 
 const DEFAULT_HOLDER = '';
 
@@ -11,5 +10,5 @@ export const HolderProvider: IProviderComponent = function ({ children }) {
 };
 
 // CURRENTLY NOT USED
-export const HolderValidityProvider: IProviderComponent = ({ children }) =>
-  ValidityProvider(ValidityContext, children);
+// export const HolderValidityProvider: IProviderComponent = ({ children }) =>
+//   ValidityProvider(ValidityContext, children);

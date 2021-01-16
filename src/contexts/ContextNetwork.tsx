@@ -6,7 +6,7 @@ interface IContextValue {
 }
 
 export const Context = createSafeContext<IContextValue>();
-export const ValidityContext = createSafeContext<IValidityContextValue>();
+// export const ValidityContext = createSafeContext<IValidityContextValue>();
 
 export const useNetwork = () => useSafeContext(Context);
-export const useNetworkValidity = () => useSafeContext(ValidityContext);
+// export const useNetworkValidity = () => useSafeContext(ValidityContext);

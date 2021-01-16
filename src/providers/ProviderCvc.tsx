@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Context, ValidityContext } from 'contexts/ContextCvc';
-import { ValidityProvider } from './Helpers';
+import { Context } from 'contexts/ContextCvc';
 
 const DEFAULT_CVC = '';
 
@@ -11,5 +10,5 @@ export const CvcProvider: IProviderComponent = function ({ children }) {
 };
 
 // CURRENTLY NOT USED
-export const CvcValidityProvider: IProviderComponent = ({ children }) =>
-  ValidityProvider(ValidityContext, children);
+// export const CvcValidityProvider: IProviderComponent = ({ children }) =>
+//   ValidityProvider(ValidityContext, children);

@@ -3,11 +3,8 @@
  */
 export const checkCardNumber = (cardNetwork: NetworkType, cardNumber: string) => {
   if (!cardNetwork) return false;
-  else {
-    cardNumber = cardNumber.replace(/[^\d]/g, '');
-    // if (cardNetwork.algorithm === 'Luhn')
-    return checkLuhn(cardNumber);
-  }
+  // if (cardNetwork.algorithm === 'Luhn')
+  return checkLuhn(cardNumber);
 };
 
 interface IAlgorithmicControlFunction {

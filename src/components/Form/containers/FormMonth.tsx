@@ -1,17 +1,14 @@
-import { FunctionComponent } from 'react';
 import { useExpDate, useExpDateValidity } from 'contexts';
 import { onMonthBlur, onMonthChange } from '../actions';
 import { FormInput } from '../views';
 
-interface IUpdateStatesArgs extends IUpdateStatesFunctionDefaultArgs {
-  newMonth: string;
-}
-
-const FormMonth: FunctionComponent = function ({ ...otherProps }) {
-  const { month, setMonth } = useExpDate();
+const FormMonth = function ({ ...styleProps }) {
+  const { month, year, setMonth } = useExpDate();
+  const { checkValidity, isMonthValid, monthInfo, monthInputRef } = useExpDateValidity();
 
   const handleBlur: IHandleBlurFunction = function (e) {
     const newMonth = onMonthBlur(e, month);
+    checkValidity({ checkType: 'ALL', month: newMonth, year });
     updateStates({ newMonth });
   };
 
@@ -21,11 +18,14 @@ const FormMonth: FunctionComponent = function ({ ...otherProps }) {
   };
 
   const handleFocus: IHandleFocusFunction = function (e) {
-    // TODO: #2 - FormMonth > handleFocus
+    checkValidity({ checkType: 'RESET_MONTH' });
   };
 
+  interface IUpdateStatesArgs {
+    newMonth?: string;
+  }
   const updateStates: IUpdateStatesFunction<IUpdateStatesArgs> = function (args) {
-    const { newMonth } = args;
+    const { newMonth = month } = args;
     if (newMonth !== month) setMonth(newMonth);
   };
 
@@ -33,13 +33,15 @@ const FormMonth: FunctionComponent = function ({ ...otherProps }) {
     <FormInput
       inputID="card-month"
       inputPlaceholder="Month"
+      inputRef={monthInputRef}
       inputValue={month}
+      isValid={isMonthValid}
       labelText="EXPIRATION DATE"
       maxLength={2}
       onInputBlur={handleBlur}
       onInputChange={handleChange}
       onInputFocus={handleFocus}
-      {...otherProps}
+      {...styleProps}
     />
   );
 };
