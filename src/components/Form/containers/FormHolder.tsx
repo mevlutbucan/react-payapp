@@ -3,10 +3,6 @@ import { useHolder } from 'contexts';
 import { onHolderChange } from '../actions';
 import { FormInput } from '../views';
 
-interface IUpdateStatesArgs extends IUpdateStatesFunctionDefaultArgs {
-  newHolder: string;
-}
-
 const FormHolder: FunctionComponent = function () {
   const { holder, setHolder } = useHolder();
 
@@ -19,6 +15,9 @@ const FormHolder: FunctionComponent = function () {
     // TODO: #2 - FormHolder > handleFocus
   };
 
+  interface IUpdateStatesArgs extends IUpdateStatesFunctionDefaultArgs {
+    newHolder: string;
+  }
   const updateStates: IUpdateStatesFunction<IUpdateStatesArgs> = function (args) {
     const { newHolder } = args;
     if (newHolder !== holder) setHolder(newHolder);

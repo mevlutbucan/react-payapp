@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, RefObject } from 'react';
 
 const DEFAULT_INPUT_CLASS = 'card-form__input';
 const INVALID_INPUT_CLASS = 'invalid';
@@ -7,6 +7,7 @@ type PropTypes = {
   inputID?: string;
   inputMode?: 'numeric' | 'text';
   inputPlaceholder?: string;
+  inputRef?: RefObject<HTMLInputElement>;
   inputType?: 'tel' | 'text';
   inputValue: string;
   isValid?: boolean;
@@ -24,6 +25,7 @@ const FormInput: FunctionComponent<PropTypes> = function ({
   inputID,
   inputMode,
   inputPlaceholder,
+  inputRef,
   inputType,
   inputValue,
   isValid,
@@ -64,6 +66,7 @@ const FormInput: FunctionComponent<PropTypes> = function ({
         onChange={onInputChange}
         onBlur={onInputBlur}
         onFocus={onInputFocus}
+        ref={inputRef}
       />
     </section>
   );
