@@ -34,7 +34,7 @@
     height: 40px;
     padding: 0px 10px 0px 40px;
     margin: 10px 0 20px 0;
-    border: 0;
+    border: 1px solid #00000000;
     border-radius: 0;
     border-bottom: 1px solid #fd435b;
     font-size: 1.375rem;
