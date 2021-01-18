@@ -1,9 +1,5 @@
 import { FunctionComponent } from 'react';
 
-type PropTypes = {
-  text?: string;
-};
-
 const FormSubmitButton: FunctionComponent<PropTypes> = function ({ text }) {
   return (
     <button className="card-form__button" type="submit">
@@ -11,9 +7,12 @@ const FormSubmitButton: FunctionComponent<PropTypes> = function ({ text }) {
     </button>
   );
 };
-
 FormSubmitButton.defaultProps = {
   text: 'PAY',
+};
+
+type PropTypes = {
+  text?: string;
 };
 
 export default FormSubmitButton;
