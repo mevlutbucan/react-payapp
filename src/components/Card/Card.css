@@ -110,19 +110,6 @@
     transition: all 300ms;
 }
 
-.fade-enter {
-    opacity: 0;
-}
-.fade-enter-done,
-.fade-enter-active,
-.fade-exit {
-    opacity: 1;
-}
-.fade-exit-active {
-    opacity: 0;
-    transform: translateY(-20px);
-}
-
 .rotateX-enter {
     transform: rotateX(90deg);
 }
