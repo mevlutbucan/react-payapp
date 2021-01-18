@@ -1,43 +1,26 @@
-import { FunctionComponent, RefObject } from 'react';
+import { FunctionComponent, RefObject, useEffect, useRef, useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 const DEFAULT_INPUT_CLASS = 'card-form__input';
 const INVALID_INPUT_CLASS = 'invalid';
 
-type PropTypes = {
-  inputID?: string;
-  inputMode?: 'numeric' | 'text';
-  inputPlaceholder?: string;
-  inputRef?: RefObject<HTMLInputElement>;
-  inputType?: 'tel' | 'text';
-  inputValue: string;
-  isValid?: boolean;
-  labelText?: string;
-  maxLength?: number;
-  onInputBlur?: IHandleBlurFunction;
-  onInputChange: IHandleChangeFunction;
-  onInputFocus?: IHandleFocusFunction;
-  sectionClass?: string;
-  validityText?: string; // Create a new view component "FormInputValidity"
-};
-
-// TODO: #3 - FormInput > Invalid Input Text
 const FormInput: FunctionComponent<PropTypes> = function ({
   inputID,
-  inputMode,
+  inputMode = 'numeric',
   inputPlaceholder,
   inputRef,
-  inputType,
+  inputType = 'text',
   inputValue,
-  isValid,
+  isValid = true,
   labelText,
   maxLength,
   onInputBlur,
   onInputChange,
   onInputFocus,
   sectionClass,
-  validityText, // Create a new view component "FormInputValidity"
+  validityInfo,
 }) {
-  if (!!labelText && !inputID) {
+  if (labelText !== undefined && !inputID) {
     console.error('Label without input id!');
   }
 
@@ -54,30 +37,68 @@ const FormInput: FunctionComponent<PropTypes> = function ({
             </label>
           )
         : null}
-      <input
-        id={inputID}
-        className={inputClass}
-        type={inputType}
-        inputMode={inputMode}
-        maxLength={maxLength}
-        placeholder={inputPlaceholder}
-        required
-        value={inputValue}
-        onChange={onInputChange}
-        onBlur={onInputBlur}
-        onFocus={onInputFocus}
-        ref={inputRef}
-      />
+      <div className="card-form__input--wrapper">
+        <input
+          id={inputID}
+          className={inputClass}
+          type={inputType}
+          inputMode={inputMode}
+          maxLength={maxLength}
+          placeholder={inputPlaceholder}
+          required
+          value={inputValue}
+          onChange={onInputChange}
+          onBlur={onInputBlur}
+          onFocus={onInputFocus}
+          ref={inputRef}
+        />
+        <FormInfo isValid={isValid} validityInfo={validityInfo} />
+      </div>
     </section>
   );
 };
 
-FormInput.defaultProps = {
-  // inputID: null,
-  inputMode: 'numeric',
-  inputType: 'text',
-  isValid: true,
-  // sectionClass: null,
+function FormInfo({ isValid, validityInfo }: FormInfoPropTypes) {
+  const [info, setInfo] = useState('');
+  const nodeRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    if (validityInfo?.length !== 0) setInfo(validityInfo as string);
+  }, [validityInfo]);
+  return (
+    <CSSTransition
+      classNames="fade"
+      in={!isValid}
+      appear
+      unmountOnExit
+      nodeRef={nodeRef}
+      addEndListener={done => nodeRef.current?.addEventListener('transitionend', done, false)}>
+      <p className="card-form__info" ref={nodeRef}>
+        {info}
+      </p>
+    </CSSTransition>
+  );
+}
+
+type PropTypes = {
+  inputID?: string;
+  inputMode?: 'numeric' | 'text';
+  inputPlaceholder?: string;
+  inputRef?: RefObject<HTMLInputElement>;
+  inputType?: 'tel' | 'text';
+  inputValue: string;
+  isValid?: boolean;
+  labelText?: string;
+  maxLength?: number;
+  onInputBlur?: IHandleBlurFunction;
+  onInputChange: IHandleChangeFunction;
+  onInputFocus?: IHandleFocusFunction;
+  sectionClass?: string;
+  validityInfo?: string;
+};
+
+type FormInfoPropTypes = {
+  isValid: boolean;
+  validityInfo?: string;
 };
 
 export default FormInput;

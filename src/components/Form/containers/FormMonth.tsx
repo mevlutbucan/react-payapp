@@ -41,6 +41,7 @@ const FormMonth = function ({ ...styleProps }) {
       onInputBlur={handleBlur}
       onInputChange={handleChange}
       onInputFocus={handleFocus}
+      validityInfo={monthInfo}
       {...styleProps}
     />
   );

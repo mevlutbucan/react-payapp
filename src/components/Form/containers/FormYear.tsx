@@ -40,6 +40,7 @@ const FormYear = function ({ ...styleProps }) {
       onInputBlur={handleBlur}
       onInputChange={handleChange}
       onInputFocus={handleFocus}
+      validityInfo={yearInfo}
       {...styleProps}
     />
   );

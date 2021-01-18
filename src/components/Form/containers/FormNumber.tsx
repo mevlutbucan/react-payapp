@@ -51,6 +51,7 @@ const FormNumber = function () {
       onInputBlur={handleBlur}
       onInputChange={handleChange}
       onInputFocus={handleFocus}
+      validityInfo={validityInfo}
     />
   );
 };
